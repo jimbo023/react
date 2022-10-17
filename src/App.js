@@ -1,23 +1,17 @@
-import logo from './logo.svg';
 import './App.css';
+import { Message } from "./Message/Message";
+import {useState} from "react";
 
-function App() {
+export const App = () => {
+    const [text, setText] = useState('test');
+
+    const handleChangeText = (ev) => {
+        setText(ev.target.value);
+    }
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+        <input onChange={handleChangeText} className='setText'/>
+      <Message text={text}/>
     </div>
   );
 }
